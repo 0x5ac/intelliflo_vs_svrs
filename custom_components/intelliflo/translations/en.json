@@ -1,0 +1,34 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pentair IntelliFlo VS+SVRS",
+        "description": "A Pentair IntelliFlo behind a Waveshare RS-485 gateway. On first connect the integration takes over whatever the pump is doing; after that its power switch and speed slider set what the pump does.",
+        "data": {
+          "host": "Gateway host",
+          "port": "Gateway port",
+          "svrs_restart": "SVRS restart"
+        },
+        "data_description": {
+          "svrs_restart": "On: after an SVRS trip the pump restarts itself once its 30 s restart timer runs out. Off: it stays stopped."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This gateway is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Pentair IntelliFlo VS+SVRS",
+        "data": {
+          "svrs_restart": "SVRS restart"
+        },
+        "data_description": {
+          "svrs_restart": "On: after an SVRS trip the pump restarts itself once its 30 s restart timer runs out. Off: it stays stopped. Written to the pump the next time it is stopped."
+        }
+      }
+    }
+  }
+}

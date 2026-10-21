@@ -1,0 +1,43 @@
+# Lint and test settings only. HACS installs custom_components/intelliflo.
+# The type checkers find Home Assistant through .venv (a symlink to a venv
+# with homeassistant installed) or the python on PATH.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ty.environment]
+extra-paths = ["custom_components"]
+
+[tool.pyrefly]
+search-path = ["custom_components"]
+
+[tool.mypy]
+mypy_path = "$MYPY_CONFIG_FILE_DIR/custom_components"
+no_implicit_optional = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[tool.pyright]
+extraPaths = ["custom_components"]
+reportMissingTypeStubs = false
+
+[tool.pylint.MAIN]
+init-hook = "import sys; sys.path.insert(0, 'custom_components')"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "line-too-long",
+  "too-few-public-methods",
+  "too-many-positional-arguments",
+  "too-many-lines",
+  "invalid-name",
+  "too-many-return-statements",
+  "missing-module-docstring",
+  "missing-class-docstring",
+  "broad-exception-caught",
+  "missing-function-docstring",
+  "attribute-defined-outside-init",
+  "unused-argument",
+  "too-many-instance-attributes",
+  "too-many-arguments",
+]
