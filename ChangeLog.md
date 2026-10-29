@@ -25,3 +25,5 @@ Notable changes to this integration, newest first. The format follows
 - entities: a new install gets `pond_pump_*` entity ids, matching the
   example dashboard, instead of `courtyard_fall_*`; an existing install
   keeps the ids it has
+- README: links the author's own copy of the example dashboard, and the
+  HACS steps say "this repository" instead of spelling out its URL

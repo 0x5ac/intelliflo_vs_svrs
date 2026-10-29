@@ -1,6 +1,5 @@
 # Pentair IntelliFlo VS+SVRS for Home Assistant
 
-
 ## This integration or the IntelliCenter one?
 
 Pentair pumps are often run by an automation panel such as the IntelliCenter, and the [IntelliCenter integration](https://github.com/joyfulhouse/intellicenter) talks to that panel over your network.
@@ -21,8 +20,6 @@ It takes the panel's place on the pump's RS-485 bus and drives the pump itself.
 | Pump settings | written on every connect (below)  | min/max rpm read only; priming speed and time |
 
 Never run both on one pump: the pump would take orders from two controllers on one bus.
-
-
 
 A Home Assistant integration that runs on my Pentair IntelliFlo VS+SVRS pump over RS-485 bus.
 Quoting to google, it should also work on:
@@ -48,8 +45,6 @@ It sets power and speed and every so often reports what the pump is doing.
 Whilst in control the pump the panel on the pump is disabled.
 You get it back when the pump is turned off in the integration.
 
-
-
 ## Example Dashboard
 
 `examples/dashboard.yaml` is a one-page dashboard for the pump, built from core cards only: the power and speed controls, the live readings, a day's history and the status sensor's diagnostic attributes.
@@ -71,12 +66,13 @@ Make the token on your user profile's Security tab.
 `--dry-run` prints the page and changes nothing; `--force` replaces a copy added earlier.
 Without uv, `pip install pyyaml websockets` and run it with python.
 
-I've got HA_TOKEN set in my .bashrc, my home assistant server is called ha, so I can
-install the dashboard with
+I've got HA_TOKEN set in my .bashrc, my home assistant server is called ha, so I can install the dashboard with
 
 ```
 examples/add_dashboard.py --url http://ha:8123
 ```
+
+Then, for me: [demo page](http://ha:8123/intelliflo-pump/pump)]
 
 ## Hardware
 
@@ -87,7 +83,7 @@ On my machine the gateway serves runs on port 4196.
 
 ## Installation
 
-With [HACS](https://hacs.xyz): add `https://github.com/0x5ac/intelliflo_vs_svrs` as a custom repository of type Integration, install it, and restart Home Assistant.
+With [HACS](https://hacs.xyz): add this repository as a custom repository of type Integration, install it, and restart Home Assistant.
 
 By hand: copy `custom_components/intelliflo` into your Home Assistant `config/custom_components/` directory and restart.
 
@@ -161,5 +157,5 @@ pytest
 
 - Register addresses and the status layout come from [pypentair](https://github.com/cilynx/pypentair).
 
-- Claude did lots of worrying about my code.  He's awesome.
-  
+- Claude did lots of worrying about my code.
+  He's awesome.
