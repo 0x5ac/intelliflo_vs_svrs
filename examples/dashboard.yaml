@@ -1,0 +1,78 @@
+# An example dashboard for the IntelliFlo integration, core cards only.
+#
+# By hand: create a dashboard, open its raw configuration editor and paste
+# this in. Fix any entity id Home Assistant gave a suffix (_2) to.
+#
+# Or let add_dashboard.py, beside this file, create the dashboard; it
+# looks up the real entity ids and puts them in for you.
+title: Pond pump
+views:
+  - title: Pump
+    path: pump
+    icon: mdi:pump
+    cards:
+      - type: entities
+        title: Control
+        entities:
+          - entity: switch.pond_pump_power
+            name: Power
+          - entity: number.pond_pump_speed
+            name: Speed
+          - entity: sensor.pond_pump_status
+            name: Status
+        footer:
+          type: graph
+          entity: sensor.pond_pump_rpm
+          hours_to_show: 6
+      - type: markdown
+        content: >-
+          **Power** and **Speed** say what you want the pump to do, and
+          survive a restart. The sensors say what it is doing: Status
+          reads *ramping* or *stopping* until the pump gets there,
+          *stalled* when it is told to run but sits at 0 rpm, and
+          *disconnected* when the gateway cannot reach it.
+      - type: glance
+        title: Now
+        entities:
+          - entity: sensor.pond_pump_rpm
+            name: Speed
+          - entity: sensor.pond_pump_percent
+            name: Percent
+          - entity: sensor.pond_pump_w
+            name: Power
+      - type: gauge
+        entity: sensor.pond_pump_rpm
+        name: rpm
+        min: 0
+        max: 3450
+      - type: history-graph
+        title: Last 24 hours
+        hours_to_show: 24
+        entities:
+          - entity: sensor.pond_pump_rpm
+          - entity: sensor.pond_pump_w
+          - entity: sensor.pond_pump_status
+          - entity: switch.pond_pump_power
+      - type: entities
+        title: Diagnostics
+        entities:
+          - type: attribute
+            entity: sensor.pond_pump_status
+            attribute: svrs_alarm
+            name: SVRS alarm
+          - type: attribute
+            entity: sensor.pond_pump_status
+            attribute: svrs_alarm_aux
+            name: SVRS alarm aux
+          - type: attribute
+            entity: sensor.pond_pump_status
+            attribute: run
+            name: Run byte
+          - type: attribute
+            entity: sensor.pond_pump_status
+            attribute: drive
+            name: Drive state
+          - type: attribute
+            entity: sensor.pond_pump_status
+            attribute: error
+            name: Error byte

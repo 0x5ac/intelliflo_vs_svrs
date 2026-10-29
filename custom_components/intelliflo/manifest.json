@@ -1,13 +1,13 @@
 {
   "domain": "intelliflo",
   "name": "Pentair IntelliFlo VS+SVRS",
-  "codeowners": ["@OWNER"],
+  "codeowners": ["@0x5ac"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/OWNER/hacsintelliflow",
+  "documentation": "https://github.com/0x5ac/intelliflo_vs_svrs",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/OWNER/hacsintelliflow/issues",
+  "issue_tracker": "https://github.com/0x5ac/intelliflo_vs_svrs/issues",
   "requirements": [],
   "version": "0.1.0"
 }
