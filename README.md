@@ -72,7 +72,7 @@ I've got HA_TOKEN set in my .bashrc, my home assistant server is called ha, so I
 examples/add_dashboard.py --url http://ha:8123
 ```
 
-Then, for me: [demo page](http://ha:8123/intelliflo-pump/pump)]
+Then, for me: [demo page](http://ha:8123/intelliflo-pump/pump)
 
 ## Hardware
 
